@@ -1,10 +1,24 @@
-# TouchFish Starter
+# PoE Trade Bookmark
 
-A template repository for setting up your own [TouchFish Agent](https://github.com/LightOfTheLight/touchfish_agent) workflow. Fork this repo, configure one secret, and let AI agents handle your development tasks.
+A Chrome extension for saving and loading trading searches on [Path of Exile China's trade site](https://poe.game.qq.com/trade). Similar to [better-trading](https://github.com/exile-center/better-trading), but specifically designed for the Chinese version of Path of Exile.
 
-## What is TouchFish Agent?
+This project uses the [TouchFish Agent](https://github.com/LightOfTheLight/touchfish_agent) workflow for AI-powered development.
 
-TouchFish Agent is an AI-powered development workflow that uses Claude Code running in Docker containers, triggered by GitHub Actions. It provides three AI agents:
+## Features
+
+- **Save Search Bookmarks**: Save your current trading search parameters with custom names
+- **Quick Load**: Instantly load saved searches with one click
+- **Search Management**: Edit, rename, or delete saved bookmarks
+- **China-Specific**: Built specifically for `poe.game.qq.com/trade` interface and functionality
+- **Local Storage**: All bookmarks stored locally in your browser
+
+## Why This Project?
+
+While projects like [better-trading](https://github.com/exile-center/better-trading) exist for the international PoE trade site, the Chinese version (`poe.game.qq.com/trade`) has a different URL structure and interface. This extension is specifically designed to work with the China version's trading platform.
+
+## Development with TouchFish Agent
+
+This project leverages AI-powered development workflow using Claude Code in Docker containers, triggered by GitHub Actions. Three AI agents assist with development:
 
 | Agent | Role | Triggered by |
 |-------|------|--------------|
@@ -36,17 +50,17 @@ git checkout -b dev/my-feature
 
 Agents only trigger on non-master/main branches.
 
-### 4. Describe your project
+### 4. Start development
 
-Edit `README.md` with your project description and requirements, then commit:
+Update `REQUIREMENT.md` with your feature requirements, then commit:
 
 ```bash
-git add README.md
-git commit -m "Describe my project requirements @PO"
+git add REQUIREMENT.md
+git commit -m "Add bookmark save/load feature requirements @PO"
 git push origin dev/my-feature
 ```
 
-The `@PO` trigger tells the PO agent to read your README and generate formal requirements in `REQUIREMENT.md`.
+The `@PO` trigger tells the PO agent to analyze and refine your requirements in `REQUIREMENT.md`.
 
 ### 5. Trigger agents
 
@@ -54,13 +68,13 @@ Include an agent trigger in your commit message:
 
 ```bash
 # Have the PO analyze requirements
-git commit -m "Update project requirements @PO"
+git commit -m "Add bookmark management requirements @PO"
 
 # Have the DEV implement a feature
-git commit -m "Implement user authentication @DEV"
+git commit -m "Implement bookmark save functionality @DEV"
 
 # Have the TESTER write tests
-git commit -m "Write tests for auth module @TESTER"
+git commit -m "Write tests for bookmark storage @TESTER"
 ```
 
 You can also use bracket syntax: `[DEV]`, `[PO]`, `[TESTER]`.
@@ -85,17 +99,16 @@ Each agent session creates a PR with its changes. Review, provide feedback, and 
 ├── .github/workflows/
 │   └── agent-trigger.yml    # GitHub Actions workflow
 ├── agents/
-│   ├── PO/
-│   │   ├── PO.md            # PO agent role definition
-│   │   └── history.md       # PO session history
-│   ├── DEV/
-│   │   ├── DEV.md           # DEV agent role definition
-│   │   └── history.md       # DEV session history
-│   └── TESTER/
-│       ├── TESTER.md         # TESTER agent role definition
-│       └── history.md        # TESTER session history
-├── REQUIREMENT.md            # Project requirements (maintained by PO)
-└── README.md                 # Your project description (this file)
+│   ├── PO/                  # Product Owner agent
+│   ├── DEV/                 # Developer agent
+│   └── TESTER/              # QA agent
+├── src/                     # Extension source code
+│   ├── manifest.json        # Chrome extension manifest
+│   ├── popup/               # Extension popup UI
+│   ├── content/             # Content scripts for poe.game.qq.com
+│   └── background/          # Background scripts
+├── REQUIREMENT.md           # Project requirements
+└── README.md                # This file
 ```
 
 ## Customization
@@ -110,7 +123,19 @@ Each agent session creates a PR with its changes. Review, provide feedback, and 
 - A `CLAUDE_CODE_OAUTH_TOKEN` secret configured in your repo
 - Commits pushed to a non-master/main branch with agent triggers
 
+## Installation (For Users)
+
+Once the extension is developed:
+
+1. Clone this repository
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked"
+5. Select the `src` folder from this repository
+6. Visit [poe.game.qq.com/trade](https://poe.game.qq.com/trade) and start using the extension
+
 ## Links
 
 - [TouchFish Agent](https://github.com/LightOfTheLight/touchfish_agent) - The core agent system
-- [Docker Image](https://github.com/LightOfTheLight/touchfish_agent/pkgs/container/touchfish-agent) - Pre-built agent image
+- [PoE China Trade](https://poe.game.qq.com/trade) - Path of Exile China trading platform
+- [better-trading](https://github.com/exile-center/better-trading) - Similar project for international PoE
