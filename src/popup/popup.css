@@ -1,0 +1,201 @@
+/* PoE Trade 书签 - Popup Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 320px;
+  min-height: 200px;
+  max-height: 500px;
+  background: #1a1612;
+  color: #c8a84b;
+  font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-size: 14px;
+  overflow-y: auto;
+}
+
+/* ---- Header ---- */
+.header {
+  background: #231e18;
+  border-bottom: 2px solid #8b6914;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #e0b850;
+  letter-spacing: 1px;
+}
+
+.header .subtitle {
+  font-size: 11px;
+  color: #887755;
+  margin-top: 2px;
+}
+
+/* ---- Bookmark List ---- */
+#bookmark-list {
+  list-style: none;
+  padding: 8px 0;
+}
+
+#bookmark-list li {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-bottom: 1px solid #2a2318;
+  gap: 6px;
+}
+
+#bookmark-list li:last-child {
+  border-bottom: none;
+}
+
+#bookmark-list li:hover {
+  background: #231e18;
+}
+
+/* Bookmark name / load button */
+.bookmark-name {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #c8a84b;
+  font-size: 13px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bookmark-name:hover {
+  color: #e0b850;
+  text-decoration: underline;
+}
+
+/* Rename input (hidden by default) */
+.rename-input {
+  flex: 1;
+  background: #2a2318;
+  border: 1px solid #8b6914;
+  color: #e0b850;
+  font-size: 13px;
+  font-family: inherit;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: none;
+}
+
+.rename-input:focus {
+  outline: none;
+  border-color: #c8a84b;
+}
+
+/* Action buttons */
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  line-height: 1;
+  color: #887755;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+
+.btn-icon:hover {
+  color: #c8a84b;
+  background: #2a2318;
+}
+
+.btn-icon.btn-delete:hover {
+  color: #e05555;
+}
+
+.btn-icon.btn-confirm {
+  color: #55a855;
+}
+
+.btn-icon.btn-confirm:hover {
+  color: #77cc77;
+}
+
+.btn-icon.btn-cancel:hover {
+  color: #e05555;
+}
+
+/* ---- Empty State ---- */
+#empty-state {
+  text-align: center;
+  padding: 30px 20px;
+  color: #554433;
+  line-height: 1.6;
+}
+
+#empty-state .icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+#empty-state p {
+  font-size: 13px;
+}
+
+/* ---- Footer ---- */
+.footer {
+  border-top: 1px solid #2a2318;
+  padding: 6px 10px;
+  font-size: 11px;
+  color: #443322;
+  text-align: center;
+}
+
+/* ---- Confirm overlay ---- */
+.confirm-bar {
+  display: none;
+  background: #2a1a1a;
+  border: 1px solid #8b3333;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin: 4px 10px;
+  font-size: 12px;
+  color: #e05555;
+  align-items: center;
+  gap: 8px;
+}
+
+.confirm-bar.visible {
+  display: flex;
+}
+
+.confirm-bar span {
+  flex: 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1612;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #443322;
+  border-radius: 3px;
+}

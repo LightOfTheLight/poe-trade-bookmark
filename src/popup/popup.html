@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PoE Trade 书签</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <div>
+      <h1>⭐ PoE Trade 书签</h1>
+      <div class="subtitle">流亡黯道 · 交易搜索收藏</div>
+    </div>
+    <span id="bookmark-count" style="font-size:12px;color:#887755;"></span>
+  </div>
+
+  <div id="empty-state" style="display:none;">
+    <span class="icon">📌</span>
+    <p>暂无书签</p>
+    <p style="margin-top:6px;font-size:12px;">在交易页面点击<strong style="color:#c8a84b;">「保存书签」</strong>按钮<br>即可添加搜索书签</p>
+  </div>
+
+  <div id="confirm-bar" class="confirm-bar">
+    <span id="confirm-text">确定要删除该书签吗？</span>
+    <button class="btn-icon btn-confirm" id="confirm-yes">✔ 确认</button>
+    <button class="btn-icon btn-cancel" id="confirm-no">✖ 取消</button>
+  </div>
+
+  <ul id="bookmark-list"></ul>
+
+  <div class="footer">所有数据仅保存在本地浏览器</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
